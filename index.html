@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteLock</title>
+    <!-- Using the .ico file for the browser tab icon -->
+    <link rel="icon" type="image/x-icon" href="icon/bytelocker_logo.ico">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            /* Dark navy / American police blue */
+            background-color: #0A192F; 
+            color: #FFFFFF;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .brand-header img {
+            height: 50px; 
+            width: auto;
+            margin-right: 1ch; /* Exactly 1 character space gap */
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+        }
+
+        .btn {
+            background-color: #0052CC;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background-color: #0066FF;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 24px; /* Space between the two download buttons */
+            margin-top: 2rem;
+        }
+
+        .btn-mac { background-color: #333333; }
+        .btn-mac:hover { background-color: #444444; }
+        
+        .btn-win { background-color: #0078D4; }
+        .btn-win:hover { background-color: #106EBE; }
+    </style>
+</head>
+<body>
+
+    <!-- Main View -->
+    <div id="main-view" class="content-container">
+        <div class="brand-header">
+            <img src="icon/bytelocker_logo.ico" alt="">ByteLock
+        </div>
+        <button class="btn" onclick="showPlatforms()">Download</button>
+    </div>
+
+    <!-- Platform Selection View -->
+    <div id="platform-view" class="content-container hidden">
+        <div class="brand-header">
+            <img src="icon/bytelocker_logo.ico" alt="">ByteLock
+        </div>
+        <div class="button-group">
+            <!-- Linked to your new app-files folder paths -->
+            <a href="app-files/bytelock.app" download class="btn btn-mac">Download For MacOS</a>
+            <a href="app-files/bytelock.exe" download class="btn btn-win">Download For Windows</a>
+        </div>
+    </div>
+
+    <script>
+        function showPlatforms() {
+            document.getElementById('main-view').classList.add('hidden');
+            document.getElementById('platform-view').classList.remove('hidden');
+        }
+    </script>
+
+</body>
+</html>
